@@ -3,24 +3,24 @@
 
 #include <iostream>
 using namespace std;
-  
-
-bool isBuzz(int num)
+#include <math.h>
+ 
+int checkNeon(int x)
 {
     
-    return (num % 10 == 7 || num % 7 == 0);
+    int sq = x * x;
+    int sum_digits = 0;
+    while (sq != 0)
+    {
+        sum_digits = sum_digits + sq % 10;
+        sq = sq / 10;
+    }
+    return (sum_digits == x);
 }
-  
-
 int main(void)
 {
-    int i = 67, j = 19;
-    if (isBuzz(i))
-        cout << "Buzz Number\n";
-    else
-        cout << "Not a Buzz Number\n";
-    if (isBuzz(j))
-        cout << "Buzz Number\n";
-    else
-        cout << "Not a Buzz Number\n";
+  
+    for (int i = 1; i <= 10000; i++)
+        if (checkNeon(i))
+            cout << i << " ";   
 }
